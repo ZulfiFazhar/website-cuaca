@@ -87,19 +87,6 @@ h1.temp {
     left: 20px;
 }
 
-.read-more {
-    margin-top: 30px;
-    font-size: larger;
-}
-
-.btn-readmore:hover {
-    text-decoration: underline;
-}
-
-.btn-readmore::after {
-    content: 'Read More';
-}
-
 #check-readmore:checked ~ .btn-readmore::after {
     content: 'Read Less';
 }
