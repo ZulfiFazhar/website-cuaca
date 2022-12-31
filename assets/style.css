@@ -108,13 +108,20 @@ h1.temp {
 /* 5days */
 #weatherContainer{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+}
 
+#iconsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icons{
-    float: left;
-    width: 190px;
+    /* float: initial; */
+    width: 100%;
+    max-width: 200px;
     margin: 20px;
     background: #000000d0;
     border-radius: 20px;
@@ -160,4 +167,12 @@ h1.temp {
     margin: 0;
     margin-bottom: 5px;
     margin-left: 5px;
+}
+
+@media screen and (max-width: 1135px) {
+    #iconsContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
