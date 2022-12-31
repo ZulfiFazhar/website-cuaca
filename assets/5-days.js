@@ -8,18 +8,18 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appi
 .then(response => response.json())
 .then(data => {
 
-    //Getting the min and max values for each day
+    //counter untuk max dan min value
     for(i = 0; i<5; i++){
-        document.getElementById("day" + (i+1) + "Min").innerHTML = "Min: " + Number(data.list[i].main.temp_min - 273.15).toFixed(1)+ "°";
+        document.getElementById("day" + (i+1) + "Min").innerHTML = "Min: " + Number(data.list[i].main.temp_min - 273.15).toFixed(1)+ "°C";
         //Number(1.3450001).toFixed(2); // 1.35
     }
 
     for(i = 0; i<5; i++){
-        document.getElementById("day" + (i+1) + "Max").innerHTML = "Max: " + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
+        document.getElementById("day" + (i+1) + "Max").innerHTML = "Max: " + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°C";
     }
     //------------------------------------------------------------
 
-    //Getting Weather Icons
+    //icon untuk cuaca
     for(i = 0; i<5; i++){
         document.getElementById("img" + (i+1)).src = "http://openweathermap.org/img/wn/"+
         data.list[i].weather[0].icon
@@ -31,20 +31,20 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appi
 
 })
 
-.catch(err => alert("Something Went Wrong: Try Checking Your Internet Coneciton"))
+.catch(err => alert("Terjadi Kesalahan, Cek Koneksi Internet Anda"))
 }
 
 function DefaultScreen(){
-    document.getElementById("cityInput").defaultValue = "London";
+    document.getElementById("cityInput").defaultValue = "Bandung";
     GetInfo();
 }
 
 
-//Getting and displaying the text for the upcoming five days of the week
+//Menampilkan hari
 var d = new Date();
-var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
+var weekday = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu",];
 
-//Function to get the correct integer for the index of the days array
+//(hehe hasil searching) validasi hari
 function CheckDay(day){
     if(day + d.getDay() > 6){
         return day + d.getDay() - 7;
@@ -57,5 +57,3 @@ function CheckDay(day){
     for(i = 0; i<5; i++){
         document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
     }
-
-GetInfo.fetch("Bandung")
