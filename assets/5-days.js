@@ -31,7 +31,7 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appi
 
 })
 
-.catch(err => alert("Terjadi Kesalahan, Cek Koneksi Internet Anda"))
+.catch(err => alert("Terjadi Kesalahan, Nama Kota yang dimasukkan salah"))
 }
 
 function DefaultScreen(){
